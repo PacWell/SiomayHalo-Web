@@ -1,0 +1,96 @@
+<x-layout>
+    <section id="laporan">
+        <div class="breadcumbs">
+            <h1>Laporan Penjualan</h1>
+        </div>
+        <div class="filter">
+            <div class="filter__left">
+                <div class="filter__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-list-filter-icon lucide-list-filter">
+                        <path d="M3 6h18" />
+                        <path d="M7 12h10" />
+                        <path d="M10 18h4" />
+                    </svg>
+                </div>
+                <div class="filter__title">
+                    <h2>Filter By</h2>
+                </div>
+                <ul class="filter__list">
+                    <li class="filter__item">
+                        <input type="date" name="" id="">
+                    </li>
+                    <li class="filter__item">
+                        <!-- <h3>Nama</h3> -->
+                        <select name="" id="">
+                            <option value="">Pilih Laporan</option>
+                            <option value="">Migguan</option>
+                            <option value="">Bulanan</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="filter__right">
+                <input type="search" name="" id="" placeholder="Cari disini ...">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-search-icon lucide-search">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.3-4.3" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content__top">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Produk</th>
+                            <th>Jenis Produk</th>
+                            <th>Stok Produk</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Siomay</td>
+                            <td>Makanan</td>
+                            <td>10</td>
+                            <td>
+                                <span>
+                                    Selesai
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="content__bottom">
+                <div class="show__pagination">
+                    <p>Showing 1 - 09 of 100</p>
+                </div>
+                <div class="pagination">
+                    <button class="btn__pagination" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-chevron-left-icon lucide-chevron-left">
+                            <path d="m15 18-6-6 6-6" />
+                        </svg>
+                    </button>
+                    <button class="btn__pagination">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right">
+                            <path d="m9 18 6-6-6-6" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</x-layout>
