@@ -769,13 +769,24 @@ main section#produk .content .content__bottom table tbody tr td:last-child a {
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
+main section#produk .content .content__bottom table tbody tr td:last-child button {
+    display: flex;
+    padding: 5px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
 
 main section#produk .content .content__bottom table tbody tr td:last-child a.edit {
     background-color: #0174BE;
     color: var(--white-color);
 }
 
-main section#produk .content .content__bottom table tbody tr td:last-child a.delete {
+main section#produk .content .content__bottom table tbody tr td:last-child button.delete {
     background-color: #FF2929;
     color: var(--white-color);
 }

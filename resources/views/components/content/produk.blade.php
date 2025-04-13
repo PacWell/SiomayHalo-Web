@@ -47,7 +47,7 @@
         </div>
         <div class="content">
             <div class="content__top">
-                <a href="#">
+                <a href="{{ route('produk.create') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-file-plus2-icon lucide-file-plus-2">
@@ -66,16 +66,19 @@
                             <th>No</th>
                             <th>Nama Produk</th>
                             <th>Jenis Produk</th>
+                            <th>Harga Produk</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($produkList as $index => $produk)
                         <tr>
-                            <td>1</td>
-                            <td>Siomay</td>
-                            <td>Makanan</td>
+                            <td>{{ $index + 1 }}</td>
+                            <td>{{ $produk->nama_produk }}</td>
+                            <td>{{ $produk->jenis_produk }}</td>
+                            <td>Rp {{ number_format($produk->harga, 0, ',', '.') }}</td>
                             <td>
-                                <a href="#" class="edit" title="Edit">
+                                <a href="{{ route('produk.edit', $produk->id) }}" class="edit" title="Edit">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                                         stroke-linecap="round" stroke-linejoin="round"
@@ -87,7 +90,11 @@
                                         <path d="M8 18h1" />
                                     </svg>
                                 </a>
-                                <a href="#" class="delete" title="Delete">
+                                {{-- <a href="#" class="delete" title="Delete"> --}}
+                                <form action="{{ route('produk.destroy', $produk->id) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="delete" title="Delete" onclick="return confirm('Yakin ingin menghapus produk ini?')">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                                         stroke-linecap="round" stroke-linejoin="round"
@@ -98,9 +105,12 @@
                                         <line x1="10" x2="10" y1="11" y2="17" />
                                         <line x1="14" x2="14" y1="11" y2="17" />
                                     </svg>
-                                </a>
+                                </button>
+                            </form>
+                                {{-- </a> --}}
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

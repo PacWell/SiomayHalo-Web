@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produk;
 use Illuminate\Http\Request;
 
 class ProdukController extends Controller
@@ -11,7 +12,9 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        return view('components.content.produk');
+        $produkList = Produk::all();
+        return view('components.content.produk', compact('produkList'));
+        // return view('components.content.produk');
     }
 
     /**
@@ -19,7 +22,7 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        //
+        return view('components.form.produk.create');
     }
 
     /**
@@ -27,7 +30,19 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_produk' => 'required|string|max:255',
+            'jenis_produk' => 'required|in:Makanan,Minuman',
+            'harga' => 'required|numeric',
+        ]);
+
+        Produk::create([
+            'nama_produk' => $request->nama_produk,
+            'jenis_produk' => $request->jenis_produk,
+            'harga' => $request->harga,
+        ]);
+
+        return redirect()->route('produk.index')->with('success', 'Produk berhasil ditambahkan!');
     }
 
     /**
@@ -43,7 +58,8 @@ class ProdukController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $produk = Produk::findOrFail($id);
+        return view('components.form.produk.edit', compact('produk'));
     }
 
     /**
@@ -51,7 +67,20 @@ class ProdukController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'nama_produk' => 'required|string|max:255',
+            'jenis_produk' => 'required|in:makanan,minuman',
+            'harga' => 'required|numeric',
+        ]);
+
+        $produk = Produk::findOrFail($id);
+        $produk->update([
+            'nama_produk' => $request->nama_produk,
+            'jenis_produk' => $request->jenis_produk,
+            'harga' => $request->harga,
+        ]);
+
+        return redirect()->route('produk.index')->with('success', 'Produk berhasil diperbarui!');
     }
 
     /**
@@ -59,6 +88,9 @@ class ProdukController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $produk = Produk::findOrFail($id);
+        $produk->delete();
+
+        return redirect()->route('produk.index')->with('success', 'Produk berhasil dihapus.');
     }
 }

@@ -48,22 +48,22 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>No</th>
-                            <th>Nama Produk</th>
-                            <th>Jenis Produk</th>
-                            <th>Stok Produk</th>
-                            <th>Status</th>
+                            <th>Tanggal</th>
+                            <th>Minuman terjual</th>
+                            <th>Minuman Terjual</th>
+                            <th>Pendapatan</th>
+                            <th>Detail</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Siomay</td>
-                            <td>Makanan</td>
-                            <td>10</td>
+                            <td>2025-04-13</td>
+                            <td>60</td>
+                            <td>80</td>
+                            <td>Rp 1.250.000</td>
                             <td>
                                 <span>
-                                    Selesai
+                                    [🔍 Lihat Transaksi]
                                 </span>
                             </td>
                         </tr>
