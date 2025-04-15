@@ -22,7 +22,8 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        return view('components.form.produk.create');
+        $title = 'Tambah Produk';
+        return view('components.form.produk.create',compact('title'));
     }
 
     /**
@@ -59,7 +60,8 @@ class ProdukController extends Controller
     public function edit(string $id)
     {
         $produk = Produk::findOrFail($id);
-        return view('components.form.produk.edit', compact('produk'));
+        $title = 'Edit Produk';
+        return view('components.form.produk.edit', compact('produk','title'));
     }
 
     /**
@@ -69,7 +71,7 @@ class ProdukController extends Controller
     {
         $request->validate([
             'nama_produk' => 'required|string|max:255',
-            'jenis_produk' => 'required|in:makanan,minuman',
+            'jenis_produk' => 'required|in:Makanan,Minuman',
             'harga' => 'required|numeric',
         ]);
 
