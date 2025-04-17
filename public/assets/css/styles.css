@@ -31,12 +31,23 @@ img {
 
 button {
     cursor: pointer;
+    border: none;
+    outline: none;
 }
 
 html,
 body {
     width: 100%;
     /* overflow-x: hidden; */
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    z-index: 99;
 }
 
 body {
@@ -51,17 +62,11 @@ body {
     position: relative;
 }
 
-.overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: none;
-    z-index: 99;
-}
 
 aside {
+    align-self: start;
     width: 240px;
+    height: 100vh;
     grid-area: 1 / 1 / 4 / 2;
     background-color: var(--primary-color);
     overflow: hidden;
@@ -73,7 +78,6 @@ aside {
     position: sticky;
     top: 0;
     left: 0;
-    height: 100vh;
     box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.5);
     z-index: 99999;
 }
@@ -97,7 +101,8 @@ aside.hidden .sidebar__header .sidebar__name h1 {
     display: none;
 }
 
-aside.hidden .sidebar__content .sidebar__list .sidebar__item .sidebar__link {
+aside.hidden .sidebar__content .sidebar__list .sidebar__item .sidebar__link,
+aside.hidden .sidebar__content .sidebar__list .sidebar__item .sidebar__link button {
     justify-content: center;
     transition: all 0.5s ease-in-out;
     -webkit-transition: all 0.5s ease-in-out;
@@ -193,11 +198,7 @@ aside .sidebar__header .sidebar__close {
     right: 0px;
     top: 0px;
     background-color: transparent;
-    /* border-top-left-radius: 6px; */
     border-bottom-left-radius: 6px;
-    /* border-top: 1px solid var(--grey-color);
-    border-bottom: 1px solid var(--grey-color);
-    border-left: 1px solid var(--grey-color); */
     transition: all 0.5s ease-in-out;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
@@ -250,6 +251,7 @@ aside .sidebar__content .sidebar__list .sidebar__item:last-child .sidebar__link 
     color: var(--white-color);
 }
 
+aside .sidebar__content .sidebar__list .sidebar__item form button,
 aside .sidebar__content .sidebar__list .sidebar__item .sidebar__link {
     width: 100%;
     height: 100%;
@@ -316,7 +318,6 @@ aside .sidebar__content .sidebar__list .sidebar__item .sidebar__link.active h2 {
 
 header {
     grid-area: 1 / 2 / 2 / 3;
-    ;
     padding: 0.5em 1.5em;
     background-color: var(--primary-color);
 }
@@ -350,7 +351,6 @@ header .header__content button#btnSidebar {
 
 main {
     grid-area: 2 / 2 / 3 / 3;
-    ;
     background-color: var(--white-color);
     padding: 1em 1.5em;
     height: 100%;
@@ -372,6 +372,7 @@ main section .breadcumbs {
     align-items: center;
     gap: 0.7em;
 }
+
 main section .breadcumbs a {
     width: 30px;
     height: 30px;
@@ -769,7 +770,6 @@ main section#produk .content .content__bottom table tbody tr {
     font-weight: 500;
     height: 40px;
     text-align: center;
-    text-transform: capitalize;
 }
 
 main section#produk .content .content__bottom table tbody tr td:last-child {
@@ -781,15 +781,7 @@ main section#produk .content .content__bottom table tbody tr td:last-child {
     padding: 0em 0.7em;
 }
 
-main section#produk .content .content__bottom table tbody tr td:last-child a {
-    display: flex;
-    padding: 5px;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-}
+main section#produk .content .content__bottom table tbody tr td:last-child a,
 main section#produk .content .content__bottom table tbody tr td:last-child button {
     display: flex;
     padding: 5px;
@@ -798,8 +790,6 @@ main section#produk .content .content__bottom table tbody tr td:last-child butto
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
-    border: none;
-    outline: none;
 }
 
 main section#produk .content .content__bottom table tbody tr td:last-child a.edit {
@@ -823,7 +813,8 @@ main section#produk .content .content__form {
     position: relative;
     display: flex;
 }
-main section#produk .content .content__form form{
+
+main section#produk .content .content__form form {
     /* max-width: 650px; */
     width: 100%;
     display: flex;
@@ -831,18 +822,21 @@ main section#produk .content .content__form form{
     gap: 1em;
     padding: 2em;
 }
-main section#produk .content .content__form form .form__item{
+
+main section#produk .content .content__form form .form__item {
     display: flex;
     flex-direction: column;
     gap: 0.3em;
 }
-main section#produk .content .content__form form .form__item label{
+
+main section#produk .content .content__form form .form__item label {
     font-size: 1em;
     font-weight: 600;
     color: var(--accent-color);
 }
+
 main section#produk .content .content__form form .form__item input,
-main section#produk .content .content__form form .form__item select{
+main section#produk .content .content__form form .form__item select {
     font-size: 1em;
     font-weight: 400;
     color: var(--accent-color);
@@ -856,7 +850,8 @@ main section#produk .content .content__form form .form__item select{
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
 }
-main section#produk .content .content__form form .form__btn{
+
+main section#produk .content .content__form form .form__btn {
     width: 100%;
     height: 35px;
     display: flex;
@@ -864,10 +859,10 @@ main section#produk .content .content__form form .form__btn{
     align-items: center;
     padding-inline: 0.5em;
 }
-main section#produk .content .content__form form .form__btn button{
-    width: auto;
+
+main section#produk .content .content__form form .form__btn button {
+    width: 70px;
     height: 100%;
-    padding-inline: 0.7em;
     border-radius: 6px;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
@@ -949,7 +944,6 @@ main section#laporan .content .content__top table tbody tr td:last-child {
 
 main section#laporan .content .content__top table tbody tr td:last-child span {
     display: flex;
-    align-items: center;
     padding: 5px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -958,7 +952,6 @@ main section#laporan .content .content__top table tbody tr td:last-child span {
     -o-border-radius: 5px;
     background-color: var(--support-color);
     color: var(--white-color);
-    gap: 3px;
 }
 
 main section#laporan .content .content__bottom {
@@ -1053,7 +1046,7 @@ footer {
     }
 
     aside {
-        /* h; */
+        height: 100vh;
         width: 250px;
         top: 0;
         left: 0;

@@ -1,9 +1,9 @@
 <x-layout>
-    <x-slot:tittle></x-slot:tittle>
+    {{-- <x-slot:tittle></x-slot:tittle> --}}
     <section id="dashboard">
-        <div class="breadcumbs">
-            <h1>Dashboard</h1>
-        </div>
+        <x-ui.breadcrumbs>
+            Dashboard
+        </x-ui.breadcrumbs>
         <div class="content">
             <div class="card card__1">
                 <div class="card__left">

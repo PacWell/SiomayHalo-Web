@@ -1,8 +1,8 @@
 <x-layout>
     <section id="laporan">
-        <div class="breadcumbs">
-            <h1>Laporan Penjualan</h1>
-        </div>
+        <x-ui.breadcrumbs>
+            Laporan Penjualan
+        </x-ui.breadcrumbs>
         <div class="filter">
             <div class="filter__left">
                 <div class="filter__icon">

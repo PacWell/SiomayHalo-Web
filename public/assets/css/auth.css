@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+    font-family: 'Nunito Sans';
+}
+
+:root {
+    --primary-color: #FF7A00;
+    --secondary-color: #FFD8A8;
+    --accent-color: #202224;
+    --support-color: #2AA876;
+
+    --white-color: #FFFFFF;
+    --black-color: #000000;
+    --grey-color: #DDDDDD;
+}
+
+img {
+    width: 50%;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 2em;
+}
+
+.form__container {
+    width: 100%;
+    max-width: 768px;
+    height: 400px;
+    background-color: var(--primary-color);
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    padding: 0.3em;
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5),-8px -8px 16px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.form__wrapper {
+    height: 100%;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    border: 3px solid var(--secondary-color);
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
+
+.form__wrapper .form__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7em;
+    position: relative;
+    padding-top: 1.5em;
+}
+
+.form__wrapper .form__header .form__logo {
+    width: 100px;
+    height: 100px;
+    line-height: 0;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--secondary-color);
+    position: absolute;
+    top: -70px;
+    padding: 0.5em;
+    border: 3px solid var(--primary-color);
+    outline: 3px solid var(--secondary-color);
+}
+
+.form__wrapper .form__header .form__logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.form__wrapper .form__header .form__heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.3em;
+}
+
+.form__wrapper .form__header .form__heading h1 {
+    font-size: 1.3em;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--black-color);
+}
+
+.form__wrapper .form__header .form__heading p {
+    font-size: 0.9em;
+    font-weight: 400;
+    text-align: start;
+    line-height: 1.2rem;
+    color: var(--black-color);
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+    width: 100%;
+}
+
+form .form__group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+form .form__group label {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--black-color);
+    line-height: 1.5em;
+}
+
+form .form__group input {
+    width: 100%;
+    height: 40px;
+    padding-inline: 1em;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+form .form__group.password-wrapper {
+    position: relative;
+}
+
+form .form__group.password-wrapper .toggle-password {
+    position: absolute;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: var(--accent-color);
+    opacity: 0.5;
+    bottom: 0;
+    transform: translateY(-7px);
+    -webkit-transform: translateY(-7px);
+    -moz-transform: translateY(-7px);
+    -ms-transform: translateY(-7px);
+    -o-transform: translateY(-7px);
+}
+
+form .form__btn {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+form .form__btn button {
+    width: 100%;
+    height: 35px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    background-color: #5CB338;
+    font-size: 1em;
+    font-weight: 700;
+    color: var(--accent-color);
+    border: none;
+    outline: none;
+    box-shadow: 2px 2px var(--accent-color);
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+}
+
+form .form__btn button:active {
+    box-shadow: none;
+}
+
+@media screen and (min-width: 1200px) {
+    .form__container {
+        width: 100%;
+        max-width: 568px;
+    }
+}
