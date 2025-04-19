@@ -1,13 +1,24 @@
 <x-layout>
+
     <section id="produk">
+        @if (session('success'))
+            <x-ui.alert-success>
+                {{ session('success') }}
+            </x-ui.alert-success>
+        @endif
+
+        @if (session('update'))
+            <x-ui.alert-update>
+                {{ session('update') }}
+            </x-ui.alert-update>
+        @endif
         <x-ui.breadcrumbs>Produk</x-ui.breadcrumbs>
         <x-ui.filter>
             <x-ui.filter-left>
                 <x-ui.select name="jenis_produk" placeholder="Pilih Jenis Produk" :options="[
-                    '' => 'Pilih Jenis Produk',
                     'makanan' => 'Makanan',
                     'minuman' => 'Minuman',
-                ]" />
+                ]" :selected="request('jenis_produk')" />
             </x-ui.filter-left>
 
         </x-ui.filter>
@@ -36,4 +47,5 @@
             </div>
         </div>
     </section>
+
 </x-layout>

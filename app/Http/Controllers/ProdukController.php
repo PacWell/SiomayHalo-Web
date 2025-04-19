@@ -14,7 +14,6 @@ class ProdukController extends Controller
     {
         $produkList = Produk::all();
         return view('components.content.produk', compact('produkList'));
-        // return view('components.content.produk');
     }
 
     /**
@@ -23,7 +22,7 @@ class ProdukController extends Controller
     public function create()
     {
         $title = 'Tambah Produk';
-        return view('components.form.produk.create',compact('title'));
+        return view('components.form.produk.create', compact('title'));
     }
 
     /**
@@ -61,7 +60,7 @@ class ProdukController extends Controller
     {
         $produk = Produk::findOrFail($id);
         $title = 'Edit Produk';
-        return view('components.form.produk.edit', compact('produk','title'));
+        return view('components.form.produk.edit', compact('produk', 'title'));
     }
 
     /**
@@ -82,7 +81,7 @@ class ProdukController extends Controller
             'harga' => $request->harga,
         ]);
 
-        return redirect()->route('produk.index')->with('success', 'Produk berhasil diperbarui!');
+        return redirect()->route('produk.index')->with('update', 'Produk berhasil diperbarui!');
     }
 
     /**

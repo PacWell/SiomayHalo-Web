@@ -17,16 +17,35 @@
 
 <body>
     <div class="overlay"></div>
-    <x-sidebar.content/>
+    <x-sidebar.content />
 
-    <x-header.content/>
+    <x-header.content />
 
     <main>
-        {{  $slot }}
+        {{ $slot }}
     </main>
-    <x-footer.content/>
+    <x-footer.content />
 
     <script src="{{ asset('assets/js/script.js') }}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const alerts = document.querySelectorAll('.alert');
+
+            alerts.forEach(function(alert) {
+                setTimeout(() => {
+                    alert.classList.add('show');
+                }, 100);
+
+                setTimeout(() => {
+                    alert.classList.add('fade-out');
+                    setTimeout(() => {
+                        alert.style.display =
+                            'none';
+                    }, 500);
+                }, 3000);
+            });
+        });
+    </script>
 </body>
 
 </html>
